@@ -1,0 +1,89 @@
+/* COLORS TO CHANGE */
+$green  : #4fbf70;
+$blue   : #34a9db;
+$yellow : #ffd158;
+$gray   : #8b8b8b;
+$jet    : #242424;
+
+/* DONT EDIT BELOW THIS LINE */
+.button-blue {
+  border-radius: 20px;
+  text-align: center;
+  padding: 12px 25px;
+  height: auto;
+  line-height: normal;
+  background-color: $blue;
+  border: 1px solid $blue;
+  color: white;
+  box-shadow: none;
+  text-transform: none;
+  background-color: $blue;
+  border: 1px solid $blue;
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+.button-clear {
+  border-radius: 20px;
+  text-align: center;
+  padding: 12px 25px;
+  height: auto;
+  line-height: normal;
+  background-color: $blue;
+  border: 1px solid $blue;
+  color: white;
+  box-shadow: none;
+  text-transform: none;
+  background-color: transparent;
+  border: 1px solid $jet;
+  color: $jet;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+.button-green {
+  border-radius: 20px;
+  text-align: center;
+  padding: 12px 25px;
+  height: auto;
+  line-height: normal;
+  background-color: $blue;
+  border: 1px solid $blue;
+  color: white;
+  box-shadow: none;
+  text-transform: none;
+  background-color: $green;
+  border: 1px solid $green;
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $green;
+  }
+}
+.button-white {
+  border-radius: 20px;
+  text-align: center;
+  padding: 12px 25px;
+  height: auto;
+  line-height: normal;
+  background-color: $blue;
+  border: 1px solid $blue;
+  color: white;
+  box-shadow: none;
+  text-transform: none;
+  background-color: white;
+  border: 1px solid white;
+  color: $blue;
+  text-decoration: none;
+
+  &:hover {
+    background-color: white;
+  }
+}
