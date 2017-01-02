@@ -517,18 +517,22 @@ function extra_cta_blocks($atts, $content = null) {
     $lg = 12 / $total_block_count;
     $html = '<div class="tripple-blocks">';
       $html .= '<div class="row">';
+        $count = 1;
         while (have_rows('extra_cta_blocks')): the_row(); 
-          $extraClass = (get_sub_field('form_block') == 'yes') ? 'form' : '';
-          $h2 = (get_sub_field('form_block') == 'yes') ? '<h2 class="text-center">Contact Us Today</h2>': '';
-          $html .= '<div class="col s12 l'.$lg.' '.$extraClass.' nopadding nomargin">';
-            $html .= '<div class="content">';
-              $html .= $h2;
-              $html .= get_sub_field('content');
-            $html .= '</div>';
-            if (get_sub_field('form_block') !== 'yes' && get_sub_field('background_image')):
-              $html .= '<img src="'.get_sub_field('background_image').'" class="box-bg hide-on-med-and-down" />';
+            if ($count <= 3):
+              $extraClass = (get_sub_field('form_block') == 'yes') ? 'form' : '';
+              $h2 = (get_sub_field('form_block') == 'yes') ? '<h2 class="text-center">Contact Us Today</h2>': '';
+              $html .= '<div class="col s12 l'.$lg.' '.$extraClass.' nopadding nomargin">';
+                $html .= '<div class="content">';
+                  $html .= $h2;
+                  $html .= get_sub_field('content');
+                $html .= '</div>';
+                if (get_sub_field('form_block') !== 'yes' && get_sub_field('background_image')):
+                  $html .= '<img src="'.get_sub_field('background_image').'" class="box-bg hide-on-med-and-down" />';
+                endif;
+              $html .= '</div>';
+            $count++;
             endif;
-          $html .= '</div>';
         endwhile;
       $html .= '</div>';
     $html .= '</div>';

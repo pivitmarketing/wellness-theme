@@ -6,7 +6,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Requires at least: 3.2.1
 Tested up to: 4.7
-Stable tag: 2.10.26
+Stable tag: 2.10.27
 
 Saves submitted form data to the database. Export the data to a file or use shortcodes to display it.
 
@@ -88,6 +88,11 @@ You can always deactivate the plugin without loosing data.
 1. Admin Panel view of submitted form data
 
 == Changelog ==
+
+= 2.10.28 =
+* Upgrades to match the following improvements in CFDB Editor 1.5
+* Improvement: CSV Import - can now set delimiter, enclosure and escape characters
+* Improvement: CSV Import - better de-duplication of submit_times read in CSV
 
 = 2.10.27 =
 * Improvement: Updated Excel & ODS exporter to Spout-2.7.1 from Spout-2.7.0

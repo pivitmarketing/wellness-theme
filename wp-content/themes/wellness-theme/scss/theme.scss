@@ -19,7 +19,7 @@ $jet    : #242424;
 
 img {
   max-width: 100%;
-}view-article
+}
 * {
   margin: 0;
   padding: 0;
@@ -57,6 +57,7 @@ a:hover {
     @media (min-width: 1281px) { @content; }
   }
 }
+
 
 .alignright {
   float: right;
@@ -124,49 +125,50 @@ a:hover {
     background-color: $blue;
   }
 }
+@mixin buttons($mainColor, $textColor) {
+  @extend .button;
+  background-color: $mainColor;
+  @if ($mainColor == transparent) {
+    border: 1px solid white;
+  } @else {
+    border: 1px solid $mainColor;
+  }
+  color: $textColor;
+
+  a {
+    color: $textColor;
+  }
+
+  &:hover {
+    background-color: $mainColor;
+    @if ($mainColor == transparent) {
+      border: 1px solid white;
+    } @else {
+      border: 1px solid $mainColor;
+    }
+  }
+}
 .button {
   &-clear {
-    @extend .button;
-    background-color: transparent;
-    border: 1px solid white;
-    color: white;
-    text-transform: uppercase;
-
-    a {
-      color: white;
-    }
-
-    &:hover {
-      background-color: transparent;
-    }
+    @include buttons(transparent, white);
   }
   &-green {
-    @extend .button;
-    background-color: $green;
-    border: 1px solid $green;
-    color: white;
-
-    a {
-      color: white;
-    }
-
-    &:hover {
-      background-color: $green;
-    }
+    @include buttons($green, white);
+  }
+  &-blue {
+    @include buttons($blue, white);
+  }
+  &-yellow {
+    @include buttons($yellow, white);
   }
   &-white {
-    @extend .button;
-    background-color: white;
-    border: 1px solid white;
-    color: $blue;
-
-    a {
-      color: $blue;
-    }
-
-    &:hover {
-      background-color: white;
-    }
+    @include buttons(white, $blue);
+  }
+  &-gray {
+    @include buttons($gray, white);
+  }
+  &-jet {
+    @include buttons($jet, white);
   }
   &:focus, 
   &:active {
@@ -1225,4 +1227,7 @@ footer {
     margin-bottom: 0px;
     margin-top: 50px;
   }
+}
+body.home footer .newsletter {
+  margin-top: 0px;
 }

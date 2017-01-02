@@ -17,35 +17,11 @@ $jet    : #242424;
   color: white;
   box-shadow: none;
   text-transform: none;
-  background-color: $blue;
-  border: 1px solid $blue;
   color: white;
-  text-decoration: none;
-
-  &:hover {
-    background-color: transparent;
-  }
 }
-.button-clear {
-  border-radius: 20px;
-  text-align: center;
-  padding: 12px 25px;
-  height: auto;
-  line-height: normal;
-  background-color: $blue;
-  border: 1px solid $blue;
-  color: white;
-  box-shadow: none;
-  text-transform: none;
-  background-color: transparent;
-  border: 1px solid $jet;
-  color: $jet;
-  text-transform: uppercase;
+.button-blue a {
   text-decoration: none;
-
-  &:hover {
-    background-color: transparent;
-  }
+  color: white;
 }
 .button-green {
   border-radius: 20px;
@@ -53,19 +29,50 @@ $jet    : #242424;
   padding: 12px 25px;
   height: auto;
   line-height: normal;
-  background-color: $blue;
-  border: 1px solid $blue;
-  color: white;
-  box-shadow: none;
-  text-transform: none;
   background-color: $green;
   border: 1px solid $green;
   color: white;
+  box-shadow: none;
+  text-transform: none;
   text-decoration: none;
-
-  &:hover {
-    background-color: $green;
-  }
+}
+.button-green a {
+  text-decoration: none;
+  color: white;
+}
+.button-yellow {
+  border-radius: 20px;
+  text-align: center;
+  padding: 12px 25px;
+  height: auto;
+  line-height: normal;
+  background-color: $yellow;
+  border: 1px solid $yellow;
+  color: white;
+  box-shadow: none;
+  text-transform: none;
+  text-decoration: none;
+}
+.button-yellow a {
+  text-decoration: none;
+  color: white;
+}
+.button-gray {
+  border-radius: 20px;
+  text-align: center;
+  padding: 12px 25px;
+  height: auto;
+  line-height: normal;
+  background-color: $gray;
+  border: 1px solid $gray;
+  color: white;
+  box-shadow: none;
+  text-transform: none;
+  text-decoration: none;
+}
+.button-gray a {
+  text-decoration: none;
+  color: white;
 }
 .button-white {
   border-radius: 20px;
@@ -73,17 +80,48 @@ $jet    : #242424;
   padding: 12px 25px;
   height: auto;
   line-height: normal;
-  background-color: $blue;
+  background-color: white;
   border: 1px solid $blue;
+  color: $blue;
+  box-shadow: none;
+  text-transform: none;
+  text-decoration: none;
+}
+.button-white a {
+  text-decoration: none;
+  color: $blue;
+}
+.button-jet {
+  border-radius: 20px;
+  text-align: center;
+  padding: 12px 25px;
+  height: auto;
+  line-height: normal;
+  background-color: $jet;
+  border: 1px solid $jet;
   color: white;
   box-shadow: none;
   text-transform: none;
-  background-color: white;
-  border: 1px solid white;
-  color: $blue;
   text-decoration: none;
-
-  &:hover {
-    background-color: white;
-  }
+}
+.button-jet a {
+  text-decoration: none;
+  color: white;
+}
+.button-clear {
+  border-radius: 20px;
+  text-align: center;
+  padding: 12px 25px;
+  height: auto;
+  line-height: normal;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  box-shadow: none;
+  text-transform: none;
+  text-decoration: none;
+}
+.button-clear a {
+  text-decoration: none;
+  color: white;
 }

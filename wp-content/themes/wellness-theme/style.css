@@ -13,7 +13,6 @@
 img {
   max-width: 100%; }
 
-view-article
 * {
   margin: 0;
   padding: 0;
@@ -78,7 +77,7 @@ a:hover {
 .nopadding {
   padding: 0 !important; }
 
-.button, .button-clear, .button-green, .main-content .internal-content .wpcf7 input[type=submit], .main-content .internal-content .blog-page article .thumbnail-image .categories li, .button-white, .main-content .tripple-blocks .form input[type=submit], .main-content .tripple-blocks .form textarea[type=submit], .newsletter input[type=submit] {
+.button, .button-clear, .button-green, .main-content .internal-content .wpcf7 input[type=submit], .main-content .internal-content .blog-page article .thumbnail-image .categories li, .button-blue, .button-yellow, .button-white, .main-content .tripple-blocks .form input[type=submit], .main-content .tripple-blocks .form textarea[type=submit], .button-gray, .button-jet, .newsletter input[type=submit] {
   border-radius: 20px;
   text-align: center;
   padding: 12px 25px;
@@ -89,18 +88,18 @@ a:hover {
   color: white;
   box-shadow: none;
   text-transform: none; }
-  .button:hover, .button-clear:hover, .button-green:hover, .main-content .internal-content .wpcf7 input[type=submit]:hover, .main-content .internal-content .blog-page article .thumbnail-image .categories li:hover, .button-white:hover, .main-content .tripple-blocks .form input[type=submit]:hover, .main-content .tripple-blocks .form textarea[type=submit]:hover, .newsletter input[type=submit]:hover {
+  .button:hover, .button-clear:hover, .button-green:hover, .main-content .internal-content .wpcf7 input[type=submit]:hover, .main-content .internal-content .blog-page article .thumbnail-image .categories li:hover, .button-blue:hover, .button-yellow:hover, .button-white:hover, .main-content .tripple-blocks .form input[type=submit]:hover, .main-content .tripple-blocks .form textarea[type=submit]:hover, .button-gray:hover, .button-jet:hover, .newsletter input[type=submit]:hover {
     background-color: #34a9db; }
 
 .button-clear {
   background-color: transparent;
   border: 1px solid white;
-  color: white;
-  text-transform: uppercase; }
+  color: white; }
   .button-clear a {
     color: white; }
   .button-clear:hover {
-    background-color: transparent; }
+    background-color: transparent;
+    border: 1px solid white; }
 .button-green, .main-content .internal-content .wpcf7 input[type=submit], .main-content .internal-content .blog-page article .thumbnail-image .categories li {
   background-color: #4fbf70;
   border: 1px solid #4fbf70;
@@ -108,7 +107,26 @@ a:hover {
   .button-green a, .main-content .internal-content .wpcf7 input[type=submit] a, .main-content .internal-content .blog-page article .thumbnail-image .categories li a {
     color: white; }
   .button-green:hover, .main-content .internal-content .wpcf7 input[type=submit]:hover, .main-content .internal-content .blog-page article .thumbnail-image .categories li:hover {
-    background-color: #4fbf70; }
+    background-color: #4fbf70;
+    border: 1px solid #4fbf70; }
+.button-blue {
+  background-color: #34a9db;
+  border: 1px solid #34a9db;
+  color: white; }
+  .button-blue a {
+    color: white; }
+  .button-blue:hover {
+    background-color: #34a9db;
+    border: 1px solid #34a9db; }
+.button-yellow {
+  background-color: #ffd158;
+  border: 1px solid #ffd158;
+  color: white; }
+  .button-yellow a {
+    color: white; }
+  .button-yellow:hover {
+    background-color: #ffd158;
+    border: 1px solid #ffd158; }
 .button-white, .main-content .tripple-blocks .form input[type=submit], .main-content .tripple-blocks .form textarea[type=submit] {
   background-color: white;
   border: 1px solid white;
@@ -116,8 +134,27 @@ a:hover {
   .button-white a, .main-content .tripple-blocks .form input[type=submit] a, .main-content .tripple-blocks .form textarea[type=submit] a {
     color: #34a9db; }
   .button-white:hover, .main-content .tripple-blocks .form input[type=submit]:hover, .main-content .tripple-blocks .form textarea[type=submit]:hover {
-    background-color: white; }
-.button:focus, .button-clear:focus, .button-green:focus, .main-content .internal-content .wpcf7 input[type=submit]:focus, .main-content .internal-content .blog-page article .thumbnail-image .categories li:focus, .button-white:focus, .main-content .tripple-blocks .form input[type=submit]:focus, .main-content .tripple-blocks .form textarea[type=submit]:focus, .newsletter input[type=submit]:focus, .button:active, .button-clear:active, .button-green:active, .main-content .internal-content .wpcf7 input[type=submit]:active, .main-content .internal-content .blog-page article .thumbnail-image .categories li:active, .button-white:active, .main-content .tripple-blocks .form input[type=submit]:active, .main-content .tripple-blocks .form textarea[type=submit]:active, .newsletter input[type=submit]:active {
+    background-color: white;
+    border: 1px solid white; }
+.button-gray {
+  background-color: #8b8b8b;
+  border: 1px solid #8b8b8b;
+  color: white; }
+  .button-gray a {
+    color: white; }
+  .button-gray:hover {
+    background-color: #8b8b8b;
+    border: 1px solid #8b8b8b; }
+.button-jet {
+  background-color: #242424;
+  border: 1px solid #242424;
+  color: white; }
+  .button-jet a {
+    color: white; }
+  .button-jet:hover {
+    background-color: #242424;
+    border: 1px solid #242424; }
+.button:focus, .button-clear:focus, .button-green:focus, .main-content .internal-content .wpcf7 input[type=submit]:focus, .main-content .internal-content .blog-page article .thumbnail-image .categories li:focus, .button-blue:focus, .button-yellow:focus, .button-white:focus, .main-content .tripple-blocks .form input[type=submit]:focus, .main-content .tripple-blocks .form textarea[type=submit]:focus, .button-gray:focus, .button-jet:focus, .newsletter input[type=submit]:focus, .button:active, .button-clear:active, .button-green:active, .main-content .internal-content .wpcf7 input[type=submit]:active, .main-content .internal-content .blog-page article .thumbnail-image .categories li:active, .button-blue:active, .button-yellow:active, .button-white:active, .main-content .tripple-blocks .form input[type=submit]:active, .main-content .tripple-blocks .form textarea[type=submit]:active, .button-gray:active, .button-jet:active, .newsletter input[type=submit]:active {
   outline: 0;
   border: none; }
 
@@ -278,11 +315,15 @@ header .splash-area .main-content .internal-content .wpcf7 input[type=submit],
 .main-content .internal-content .wpcf7 header .splash-area input[type=submit],
 header .splash-area .main-content .internal-content .blog-page article .thumbnail-image .categories li,
 .main-content .internal-content .blog-page article .thumbnail-image .categories header .splash-area li,
+header .splash-area .button-blue,
+header .splash-area .button-yellow,
 header .splash-area .button-white,
 header .splash-area .main-content .tripple-blocks .form input[type=submit],
 .main-content .tripple-blocks .form header .splash-area input[type=submit],
 header .splash-area .main-content .tripple-blocks .form textarea[type=submit],
 .main-content .tripple-blocks .form header .splash-area textarea[type=submit],
+header .splash-area .button-gray,
+header .splash-area .button-jet,
 header .splash-area .newsletter input[type=submit],
 .newsletter header .splash-area input[type=submit],
 header .splash-area .button-green,
@@ -860,3 +901,6 @@ div.wpcf7-mail-sent-ok {
 footer .newsletter.top-level {
   margin-bottom: 0px;
   margin-top: 50px; }
+
+body.home footer .newsletter {
+  margin-top: 0px; }
