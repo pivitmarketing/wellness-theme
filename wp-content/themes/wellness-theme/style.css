@@ -13,6 +13,7 @@
 img {
   max-width: 100%; }
 
+view-article
 * {
   margin: 0;
   padding: 0;
@@ -26,19 +27,36 @@ body, html {
   height: 100%;
   font-size: 62.5%; }
 
+a:focus,
+a:active,
+a:hover {
+  outline: 0;
+  border: none; }
+
 /* MEDIA QUERIES */
+.alignright {
+  float: right;
+  padding: 20px 0 20px 20px; }
+
+.alignleft {
+  float: left;
+  padding: 20px 20px 20px 0; }
+
 .flex, .main-content .tripple-blocks .row, .main-content .cta-blocks {
   display: flex; }
 
-.clearfix:before,
-.clearfix:after {
+.clearfix:before, .main-content .internal-content ul:before, .main-content .internal-content ol:before, .main-content .internal-content .blog-page article .thumbnail-image:before,
+.clearfix:after,
+.main-content .internal-content ul:after,
+.main-content .internal-content ol:after,
+.main-content .internal-content .blog-page article .thumbnail-image:after {
   content: " ";
   display: table; }
 
-.clearfix:after {
+.clearfix:after, .main-content .internal-content ul:after, .main-content .internal-content ol:after, .main-content .internal-content .blog-page article .thumbnail-image:after {
   clear: both; }
 
-.clearfix {
+.clearfix, .main-content .internal-content ul, .main-content .internal-content ol, .main-content .internal-content .blog-page article .thumbnail-image {
   *zoom: 1; }
 
 .nomargin {
@@ -51,16 +69,16 @@ body, html {
 .text-center {
   text-align: center; }
 
-.material-icon, .main-content .tripple-blocks .form h2:before {
+.material-icon, .main-content .internal-content aside ul li a:before, .main-content .tripple-blocks .form h2:before {
   font-family: 'Material Icons'; }
 
-.zomblo, header .splash-area h1 {
+.zomblo, header .subpage-title, header .splash-area h1, .main-content .internal-content .subpage-title {
   font-family: 'zombloregular'; }
 
 .nopadding {
   padding: 0 !important; }
 
-.button, .button-clear, .button-green, .button-white, .main-content .tripple-blocks .form input[type=submit], .main-content .tripple-blocks .form textarea[type=submit], .newsletter input[type=submit] {
+.button, .button-clear, .button-green, .main-content .internal-content .wpcf7 input[type=submit], .main-content .internal-content .blog-page article .thumbnail-image .categories li, .button-white, .main-content .tripple-blocks .form input[type=submit], .main-content .tripple-blocks .form textarea[type=submit], .newsletter input[type=submit] {
   border-radius: 20px;
   text-align: center;
   padding: 12px 25px;
@@ -71,7 +89,7 @@ body, html {
   color: white;
   box-shadow: none;
   text-transform: none; }
-  .button:hover, .button-clear:hover, .button-green:hover, .button-white:hover, .main-content .tripple-blocks .form input[type=submit]:hover, .main-content .tripple-blocks .form textarea[type=submit]:hover, .newsletter input[type=submit]:hover {
+  .button:hover, .button-clear:hover, .button-green:hover, .main-content .internal-content .wpcf7 input[type=submit]:hover, .main-content .internal-content .blog-page article .thumbnail-image .categories li:hover, .button-white:hover, .main-content .tripple-blocks .form input[type=submit]:hover, .main-content .tripple-blocks .form textarea[type=submit]:hover, .newsletter input[type=submit]:hover {
     background-color: #34a9db; }
 
 .button-clear {
@@ -79,20 +97,29 @@ body, html {
   border: 1px solid white;
   color: white;
   text-transform: uppercase; }
+  .button-clear a {
+    color: white; }
   .button-clear:hover {
     background-color: transparent; }
-.button-green {
+.button-green, .main-content .internal-content .wpcf7 input[type=submit], .main-content .internal-content .blog-page article .thumbnail-image .categories li {
   background-color: #4fbf70;
   border: 1px solid #4fbf70;
   color: white; }
-  .button-green:hover {
+  .button-green a, .main-content .internal-content .wpcf7 input[type=submit] a, .main-content .internal-content .blog-page article .thumbnail-image .categories li a {
+    color: white; }
+  .button-green:hover, .main-content .internal-content .wpcf7 input[type=submit]:hover, .main-content .internal-content .blog-page article .thumbnail-image .categories li:hover {
     background-color: #4fbf70; }
 .button-white, .main-content .tripple-blocks .form input[type=submit], .main-content .tripple-blocks .form textarea[type=submit] {
   background-color: white;
   border: 1px solid white;
   color: #34a9db; }
+  .button-white a, .main-content .tripple-blocks .form input[type=submit] a, .main-content .tripple-blocks .form textarea[type=submit] a {
+    color: #34a9db; }
   .button-white:hover, .main-content .tripple-blocks .form input[type=submit]:hover, .main-content .tripple-blocks .form textarea[type=submit]:hover {
     background-color: white; }
+.button:focus, .button-clear:focus, .button-green:focus, .main-content .internal-content .wpcf7 input[type=submit]:focus, .main-content .internal-content .blog-page article .thumbnail-image .categories li:focus, .button-white:focus, .main-content .tripple-blocks .form input[type=submit]:focus, .main-content .tripple-blocks .form textarea[type=submit]:focus, .newsletter input[type=submit]:focus, .button:active, .button-clear:active, .button-green:active, .main-content .internal-content .wpcf7 input[type=submit]:active, .main-content .internal-content .blog-page article .thumbnail-image .categories li:active, .button-white:active, .main-content .tripple-blocks .form input[type=submit]:active, .main-content .tripple-blocks .form textarea[type=submit]:active, .newsletter input[type=submit]:active {
+  outline: 0;
+  border: none; }
 
 @media (min-width: 1281px) {
   .table-container {
@@ -123,6 +150,21 @@ header .top-info {
       padding: 8px 8px 4px 0; }
 header .brand-logo.mobile {
   margin-top: 7px; }
+header .subpage-title {
+  text-transform: lowercase;
+  color: white;
+  font-size: 50px;
+  font-size: 5rem; }
+  header .subpage-title.more-margin {
+    margin: 150px 0 0; }
+  @media (max-width: 1280px) {
+    header .subpage-title {
+      margin: 0;
+      text-align: center; }
+      header .subpage-title.more-margin {
+        margin: 0;
+        padding: 15px 0;
+        text-align: center; } }
 header .desktop-header {
   background-repeat: no-repeat;
   background-size: cover;
@@ -130,7 +172,8 @@ header .desktop-header {
   padding-top: 35px;
   padding-bottom: 15px;
   color: white;
-  background-color: #242424; }
+  background-color: #242424;
+  height: auto; }
   header .desktop-header.active-content {
     padding-bottom: 35px; }
     @media (min-width: 1281px) {
@@ -231,6 +274,10 @@ header .splash-area .button-blue,
 header .splash-area .button,
 header .splash-area .button-clear,
 header .splash-area .button-green,
+header .splash-area .main-content .internal-content .wpcf7 input[type=submit],
+.main-content .internal-content .wpcf7 header .splash-area input[type=submit],
+header .splash-area .main-content .internal-content .blog-page article .thumbnail-image .categories li,
+.main-content .internal-content .blog-page article .thumbnail-image .categories header .splash-area li,
 header .splash-area .button-white,
 header .splash-area .main-content .tripple-blocks .form input[type=submit],
 .main-content .tripple-blocks .form header .splash-area input[type=submit],
@@ -238,12 +285,24 @@ header .splash-area .main-content .tripple-blocks .form textarea[type=submit],
 .main-content .tripple-blocks .form header .splash-area textarea[type=submit],
 header .splash-area .newsletter input[type=submit],
 .newsletter header .splash-area input[type=submit],
-header .splash-area .button-green {
+header .splash-area .button-green,
+header .splash-area .main-content .internal-content .wpcf7 input[type=submit],
+.main-content .internal-content .wpcf7 header .splash-area input[type=submit],
+header .splash-area .main-content .internal-content .blog-page article .thumbnail-image .categories li,
+.main-content .internal-content .blog-page article .thumbnail-image .categories header .splash-area li {
   font-size: 12px;
   font-size: 1.2rem; }
 
+div.wpcf7-validation-errors,
+div.wpcf7-mail-sent-ng,
+div.wpcf7-mail-sent-ok {
+  font-size: 14px;
+  font-size: 1.4rem;
+  margin: 0; }
+
 .newsletter {
   border-bottom: 2px solid rgba(139, 139, 139, 0.1);
+  border-top: 2px solid rgba(139, 139, 139, 0.1);
   width: 100%;
   padding: 35px 0; }
   @media (max-width: 600px) {
@@ -258,7 +317,11 @@ header .splash-area .button-green {
     color: #8b8b8b; }
     .newsletter label b, .newsletter label strong {
       color: black;
-      font-weight: 400; }
+      font-weight: 600; }
+  .newsletter form {
+    position: relative; }
+    .newsletter form p {
+      margin-bottom: 0px; }
   .newsletter input {
     background-color: rgba(139, 139, 139, 0.1);
     border: none;
@@ -277,12 +340,21 @@ header .splash-area .button-green {
       margin-left: 10px;
       font-size: 12px;
       font-size: 1.2rem; }
+  .newsletter.top-level {
+    margin-bottom: 20px; }
+    @media (min-width: 1281px) {
+      .newsletter.top-level {
+        margin-bottom: 40px; } }
+    .newsletter.top-level p {
+      margin-top: 0px; }
 
 .main-content {
   padding: 20px 0 0; }
   @media (min-width: 1281px) {
     .main-content {
       padding: 40px 0 0; } }
+  .main-content.blogroll {
+    padding-top: 0px !important; }
   .main-content .top-block-content {
     margin-bottom: 50px; }
   .main-content h1 {
@@ -304,7 +376,7 @@ header .splash-area .button-green {
     line-height: 35px;
     line-height: 3.5rem;
     font-weight: 300; }
-  .main-content p {
+  .main-content p, .main-content li {
     color: #8b8b8b;
     font-size: 16px;
     font-size: 1.6rem;
@@ -318,21 +390,166 @@ header .splash-area .button-green {
     display: inline-block;
     margin-top: 10px;
     margin-bottom: 10px; }
-  .main-content .theme-Light h1, .main-content .theme-Light h2, .main-content .theme-Light h3, .main-content .theme-Light h4, .main-content .theme-Light p, .main-content .theme-Light li {
-    color: white; }
-  .main-content .theme-Dark h1, .main-content .theme-Dark h2, .main-content .theme-Dark h3, .main-content .theme-Dark h4, .main-content .theme-Dark p, .main-content .theme-Dark li {
+  .main-content .internal-content .subpage-title {
+    margin: 0 0 25px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(139, 139, 139, 0.1);
+    text-transform: lowercase;
+    color: #242424;
+    font-size: 50px;
+    font-size: 5rem; }
+  .main-content .internal-content ul {
+    margin-left: 40px; }
+    .main-content .internal-content ul li {
+      list-style: disc; }
+  .main-content .internal-content .wpcf7 label {
+    font-size: 14px;
+    font-size: 1.4rem;
     color: #242424; }
+  .main-content .internal-content .wpcf7 input[type=text],
+  .main-content .internal-content .wpcf7 input[type=email],
+  .main-content .internal-content .wpcf7 input[type=phone],
+  .main-content .internal-content .wpcf7 textarea {
+    background-color: rgba(139, 139, 139, 0.14);
+    color: #8b8b8b;
+    font-size: 14px;
+    font-size: 1.4rem;
+    height: auto;
+    border: 0;
+    padding: 15px;
+    margin-bottom: 0px;
+    box-sizing: border-box; }
+    .main-content .internal-content .wpcf7 input[type=text]:focus,
+    .main-content .internal-content .wpcf7 input[type=email]:focus,
+    .main-content .internal-content .wpcf7 input[type=phone]:focus,
+    .main-content .internal-content .wpcf7 textarea:focus {
+      border-bottom: none;
+      box-shadow: 0 1px 0 0 #34a9db; }
+  .main-content .internal-content .blog-page article {
+    margin-bottom: 50px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid rgba(139, 139, 139, 0.2); }
+    .main-content .internal-content .blog-page article:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border: none; }
+    .main-content .internal-content .blog-page article .thumbnail-image {
+      position: relative; }
+      .main-content .internal-content .blog-page article .thumbnail-image .categories {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        margin-left: 0px; }
+        .main-content .internal-content .blog-page article .thumbnail-image .categories li {
+          display: inline-block;
+          list-style: none;
+          font-size: 11px;
+          font-size: 1.1rem;
+          padding: 6px 12px;
+          margin-right: 5px; }
+  .main-content .internal-content .blog-page .button-collapse-right {
+    color: #8b8b8b;
+    margin-top: 10px;
+    display: block;
+    margin-right: 5px; }
+  .main-content .internal-content .blog-page h2 {
+    font-size: 30px;
+    font-size: 3rem;
+    line-height: auto; }
+    .main-content .internal-content .blog-page h2 a {
+      color: #242424; }
+  .main-content .internal-content .blog-page p.post-info {
+    margin-top: 0px; }
+  .main-content .internal-content .blog-page .meta {
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: rgba(139, 139, 139, 0.5); }
+  .main-content .internal-content .blog-page .top-level-content {
+    position: relative; }
+    .main-content .internal-content .blog-page .top-level-content .internal-dropdown-icon {
+      position: absolute;
+      top: 15px;
+      right: 10px;
+      color: #8b8b8b; }
+  .main-content .internal-content aside h3 {
+    margin: 0 0 15px 0;
+    display: block;
+    width: 100%;
+    font-size: 24px;
+    font-size: 2.4rem;
+    line-height: 35px;
+    line-height: 3.5rem;
+    position: relative;
+    padding-bottom: 5px; }
+    .main-content .internal-content aside h3:before {
+      content: '';
+      width: 35px;
+      height: 2px;
+      background-color: #34a9db;
+      position: absolute;
+      bottom: 0; }
+  .main-content .internal-content aside ul {
+    margin: 0 0 25px; }
+    .main-content .internal-content aside ul li {
+      list-style: none;
+      margin: 0; }
+      .main-content .internal-content aside ul li a {
+        color: #8b8b8b;
+        display: block;
+        width: 100%;
+        padding: 5px 0; }
+        .main-content .internal-content aside ul li a:before {
+          content: '\E315';
+          font-size: 14px;
+          position: relative;
+          bottom: -2px; }
+  .main-content .internal-content .blog-sidelinks {
+    padding: 20px; }
+  @media (min-width: 1281px) {
+    .main-content .contact-sidebar {
+      margin-bottom: 100px; } }
+  .main-content .contact-sidebar iframe {
+    width: 100% !important;
+    height: 250px;
+    display: none; }
+    @media (min-width: 1281px) {
+      .main-content .contact-sidebar iframe {
+        display: block; } }
+  .main-content .contact-sidebar h2 {
+    color: #34a9db;
+    font-size: 21px;
+    font-size: 2.1rem;
+    line-height: 58px;
+    line-height: 5.9rem;
+    border-bottom: 1px solid rgba(139, 139, 139, 0.2); }
+  .main-content .contact-sidebar p {
+    font-weight: 300; }
+    .main-content .contact-sidebar p strong {
+      font-weight: 400;
+      color: #242424; }
+    .main-content .contact-sidebar p a {
+      color: #8b8b8b; }
   .main-content .full-bg {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding: 50px 0 40px;
+    padding: 50px 0;
     background-color: rgba(139, 139, 139, 0.3); }
     .main-content .full-bg.no-bottom-padding {
       padding-bottom: 0px !important; }
     @media (max-width: 600px) {
       .main-content .full-bg {
         padding: 25px 0 20px; } }
+    .main-content .full-bg.theme-Light {
+      background-color: #242424; }
+      .main-content .full-bg.theme-Light h1, .main-content .full-bg.theme-Light h2, .main-content .full-bg.theme-Light h3, .main-content .full-bg.theme-Light h4, .main-content .full-bg.theme-Light p, .main-content .full-bg.theme-Light li {
+        color: white; }
+    .main-content .full-bg.theme-Dark h1, .main-content .full-bg.theme-Dark h2, .main-content .full-bg.theme-Dark h3, .main-content .full-bg.theme-Dark h4, .main-content .full-bg.theme-Dark p, .main-content .full-bg.theme-Dark li {
+      color: #242424; }
+  @media (min-width: 1281px) {
+    .main-content .tripple-blocks {
+      margin-bottom: 35px; } }
   @media (max-width: 1280px) {
     .main-content .tripple-blocks .row {
       display: block;
@@ -342,7 +559,7 @@ header .splash-area .button-green {
     padding-bottom: 30px; }
     @media (min-width: 1281px) {
       .main-content .tripple-blocks .content {
-        padding: 30px 30px 0; } }
+        padding: 30px 30px 15px; } }
   .main-content .tripple-blocks .box-bg {
     position: relative;
     bottom: 0;
@@ -353,10 +570,19 @@ header .splash-area .button-green {
     margin-bottom: 0px; }
     @media (min-width: 1281px) {
       .main-content .tripple-blocks .form {
-        margin-bottom: 3px; } }
+        margin-bottom: 2px; } }
     @media (max-width: 1280px) {
       .main-content .tripple-blocks .form .content {
-        padding: 20px 30px; } }
+        padding: 20px 30px; }
+        .main-content .tripple-blocks .form .content p, .main-content .tripple-blocks .form .content input {
+          text-align: center; } }
+    .main-content .tripple-blocks .form .wpcf7-response-output {
+      position: absolute;
+      top: -35px;
+      width: 100%;
+      font-size: 12px;
+      font-size: 1.2rem;
+      margin-top: 0px; }
     .main-content .tripple-blocks .form h2 {
       position: relative; }
       .main-content .tripple-blocks .form h2:before {
@@ -370,8 +596,15 @@ header .splash-area .button-green {
         @media (max-width: 1280px) {
           .main-content .tripple-blocks .form h2:before {
             margin-top: 0px; } }
+    .main-content .tripple-blocks .form p {
+      margin: 30px 0; }
+      .main-content .tripple-blocks .form p span {
+        color: white;
+        font-size: 12px;
+        font-size: 1.2rem; }
     .main-content .tripple-blocks .form form {
-      margin-top: 50px; }
+      margin-top: 45px;
+      position: relative; }
     .main-content .tripple-blocks .form label {
       font-size: 16px;
       font-size: 1.6rem;
@@ -382,7 +615,8 @@ header .splash-area .button-green {
       border-bottom: 1px solid rgba(255, 255, 255, 0.3);
       color: white;
       font-size: 13px;
-      font-size: 1.3rem; }
+      font-size: 1.3rem;
+      margin-bottom: 0px; }
       .main-content .tripple-blocks .form input:focus, .main-content .tripple-blocks .form textarea:focus {
         box-shadow: 0 1px 0 0 #1d7da5;
         border-bottom: 1px solid #259dd1; }
@@ -404,7 +638,7 @@ header .splash-area .button-green {
         display: block;
         margin-top: 25px; } }
     .main-content .cta-blocks .box {
-      padding: 40px 30px;
+      padding: 40px;
       background-color: #34a9db; }
       .main-content .cta-blocks .box .readmore {
         display: inline-block;
@@ -464,13 +698,12 @@ header .splash-area .button-green {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 150.5px; }
-    @media (max-width: 600px) {
-      .latest-blogs .card-image {
-        height: 210.7px; } }
+    height: 210.7px; }
     @media (min-width: 1281px) {
       .latest-blogs .card-image {
         height: 301px; } }
+  .latest-blogs .view-article {
+    display: none; }
   .latest-blogs h1 {
     font-size: 35px;
     font-size: 3.5rem;
@@ -525,7 +758,7 @@ header .splash-area .button-green {
     height: inherit;
     box-shadow: none;
     margin-bottom: 0px;
-    padding: 15px 40px 15px 10px;
+    padding: 15px 40px 15px 15px;
     box-sizing: border-box;
     font-size: 13px;
     font-size: 1.3rem;
@@ -546,9 +779,15 @@ header .splash-area .button-green {
   background-color: #2f2f2f;
   padding: 50px 0 35px;
   color: white; }
+  @media (max-width: 600px) {
+    .footer-container {
+      text-align: center; } }
   .footer-container .footer-logo {
     display: block;
     margin-bottom: 25px; }
+    @media (max-width: 600px) {
+      .footer-container .footer-logo {
+        display: inline-block; } }
   .footer-container p, .footer-container li {
     font-size: 14px;
     font-size: 1.4rem;
@@ -571,9 +810,9 @@ header .splash-area .button-green {
     margin-bottom: 25px; }
   .footer-container li {
     margin-bottom: 15px; }
-  .footer-container .socials {
+  .footer-container .social-links {
     margin-top: 25px; }
-    .footer-container .socials li {
+    .footer-container .social-links li {
       display: inline-block;
       margin-right: 15px; }
   .footer-container form {
@@ -617,3 +856,7 @@ header .splash-area .button-green {
     font-size: 1.2rem;
     line-height: 19px;
     line-height: 1.9rem; }
+
+footer .newsletter.top-level {
+  margin-bottom: 0px;
+  margin-top: 50px; }

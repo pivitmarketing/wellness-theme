@@ -1,19 +1,33 @@
-<?php get_header(); ?>
+<?php get_header('blog'); ?>
 
-	<main role="main">
-		<!-- section -->
-		<section>
+  <div class="main-content blogroll">
 
-			<h1><?php _e( 'Categories for ', 'html5blank' ); single_cat_title(); ?></h1>
+    <?php include( TEMPLATEPATH . '/parts/newsletter.php'); ?>
 
-			<?php get_template_part('loop'); ?>
+    <div class="container internal-content">
+      <div class="blog-page">
+        
+        <div class="row hide-on-large-only">
+          <div class="col s12 text-right nopadding">
+            <a href="#" data-activates="blog-categories" class="button-collapse-right internal-dropdown-icon"><i class="material-icons">&#xE8D2;</i></a>
+          </div>
+        </div>
 
-			<?php get_template_part('pagination'); ?>
+        <?php include( TEMPLATEPATH . '/parts/mobile-sidebar.php'); ?>
 
-		</section>
-		<!-- /section -->
-	</main>
+        <div class="row">
+          <div class="col s12 l8">
+            <?php get_template_part('loop'); ?>
+            <?php get_template_part('pagination'); ?>
+          </div>
+          <div class="col s3 offset-s1 hide-on-med-and-down">
+            <?php include( TEMPLATEPATH . '/sidebar.php'); ?>
+          </div>
+        </div>
 
-<?php get_sidebar(); ?>
+      </div>
+    </div>
+  </div>
 
 <?php get_footer(); ?>
+

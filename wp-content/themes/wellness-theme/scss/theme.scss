@@ -19,8 +19,7 @@ $jet    : #242424;
 
 img {
   max-width: 100%;
-}
-
+}view-article
 * {
   margin: 0;
   padding: 0;
@@ -34,7 +33,12 @@ body, html {
   height: 100%;
   font-size: 62.5%;
 }
-
+a:focus,
+a:active,
+a:hover {
+  outline: 0;
+  border: none;
+}
 /* MEDIA QUERIES */
 @mixin breakpoint($point) {
   @if $point == mobile {
@@ -52,6 +56,15 @@ body, html {
   @else if $point == desktop {
     @media (min-width: 1281px) { @content; }
   }
+}
+
+.alignright {
+  float: right;
+  padding: 20px 0 20px 20px;
+}
+.alignleft {
+  float: left;
+  padding: 20px 20px 20px 0;
 }
 
 .flex {
@@ -119,6 +132,10 @@ body, html {
     color: white;
     text-transform: uppercase;
 
+    a {
+      color: white;
+    }
+
     &:hover {
       background-color: transparent;
     }
@@ -128,6 +145,10 @@ body, html {
     background-color: $green;
     border: 1px solid $green;
     color: white;
+
+    a {
+      color: white;
+    }
 
     &:hover {
       background-color: $green;
@@ -139,9 +160,18 @@ body, html {
     border: 1px solid white;
     color: $blue;
 
+    a {
+      color: $blue;
+    }
+
     &:hover {
       background-color: white;
     }
+  }
+  &:focus, 
+  &:active {
+    outline: 0;
+    border: none;
   }
 }
 
@@ -200,6 +230,29 @@ header {
     }
   }
 
+  .subpage-title {
+    @extend .zomblo;
+    text-transform: lowercase;
+    color: white;
+    font-size: 50px;
+    font-size: 5rem;
+
+    &.more-margin {
+      margin: 150px 0 0;
+    }
+
+    @include breakpoint('max') {
+      margin: 0;
+      text-align: center;
+
+      &.more-margin {
+        margin: 0;
+        padding: 15px 0;
+        text-align: center;
+      }
+    }
+  }
+
   .desktop-header {
     background-repeat: no-repeat;
     background-size: cover;
@@ -208,6 +261,7 @@ header {
     padding-bottom: 15px;
     color: white;
     background-color: $jet;
+    height: auto;
 
     &.active-content {
       padding-bottom: 35px;
@@ -372,8 +426,17 @@ header {
   }
 }
 
+div.wpcf7-validation-errors,
+div.wpcf7-mail-sent-ng,
+div.wpcf7-mail-sent-ok {
+  font-size: 14px;
+  font-size: 1.4rem;
+  margin: 0;
+}
+
 .newsletter {
   border-bottom: 2px solid rgba($gray, 0.1);
+  border-top: 2px solid rgba($gray, 0.1);
   width: 100%;
   padding: 35px 0;
 
@@ -391,7 +454,14 @@ header {
 
     b, strong {
       color: black;
-      font-weight: 400;
+      font-weight: 600;
+    }
+  }
+
+  form {
+    position: relative;
+    p {
+      margin-bottom: 0px;
     }
   }
 
@@ -419,6 +489,17 @@ header {
       font-size: 1.2rem;
     }
   }
+  &.top-level {
+    margin-bottom: 20px;
+
+    @include breakpoint('desktop') {
+      margin-bottom: 40px;
+    }
+
+    p {
+      margin-top: 0px;
+    }
+  }
 }
 
 .main-content {
@@ -426,6 +507,10 @@ header {
 
   @include breakpoint('desktop') {
     padding: 40px 0 0;
+  }
+
+  &.blogroll {
+    padding-top: 0px !important;
   }
 
   .top-block-content {
@@ -454,7 +539,7 @@ header {
     line-height: 3.5rem;
     font-weight: 300;
   }
-  p {
+  p, li {
     color: $gray;
     font-size: 16px;
     font-size: 1.6rem;
@@ -471,15 +556,206 @@ header {
     margin-bottom: 10px;
   }
 
-  .theme {
-    &-Light {
-      h1,h2,h3,h4,p,li {
-        color: white;
+  .internal-content {
+    .subpage-title {
+      margin: 0 0 25px 0;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba($gray, 0.1);
+      @extend .zomblo;
+      text-transform: lowercase;
+      color: $jet;
+      font-size: 50px;
+      font-size: 5rem;
+    }
+    ul {
+      margin-left: 40px;
+      @extend .clearfix;
+      li {
+        list-style: disc;
       }
     }
-    &-Dark {
-      h1,h2,h3,h4,p,li {
+    ol {
+      @extend .clearfix;
+    }
+
+    .wpcf7 {
+      label {
+        font-size: 14px;
+        font-size: 1.4rem;
         color: $jet;
+      }
+      input[type=text],
+      input[type=email],
+      input[type=phone],
+      textarea {
+        background-color: rgba($gray, 0.14);
+        color: $gray;
+        font-size: 14px;
+        font-size: 1.4rem;
+        height: auto;
+        border: 0;
+        padding: 15px;
+        margin-bottom: 0px;
+        box-sizing: border-box;
+
+        &:focus {
+          border-bottom: none;
+          box-shadow: 0 1px 0 0 $blue;
+        }
+      }
+      input[type=submit] {
+        @extend .button-green;
+      }
+    }
+    .blog-page {
+      article {
+        margin-bottom: 50px;
+        padding-bottom: 35px;
+        border-bottom: 1px solid rgba($gray, 0.2);
+
+        &:last-child {
+          margin-bottom: 0;
+          padding-bottom: 0;
+          border: none;
+        }
+
+        .thumbnail-image {
+          position: relative;
+          @extend .clearfix;
+
+          .categories {
+            position: absolute;
+            top: 0;
+            left: 10px;
+            margin-left: 0px;
+
+            li {
+              display: inline-block;
+              list-style: none;
+              @extend .button-green;
+              font-size: 11px;
+              font-size: 1.1rem;
+              padding: 6px 12px;
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+      .button-collapse-right {
+        color: $gray;
+        margin-top: 10px;
+        display: block;
+        margin-right: 5px;
+      }
+      h2 {
+        font-size: 30px;
+        font-size: 3rem;
+        line-height: auto;
+
+        a {
+          color: $jet;
+        }
+      }
+      p.post-info {
+        margin-top: 0px;
+      }
+      .meta {
+        font-size: 14px;
+        font-size: 1.4rem;
+        font-weight: 300;
+        color: rgba($gray, 0.5);
+      }
+      .top-level-content {
+        position: relative;
+        .internal-dropdown-icon {
+          position: absolute;
+          top: 15px;
+          right: 10px;
+          color: $gray;
+        }
+      }
+    }
+    aside {
+      h3 {
+        margin: 0 0 15px 0;
+        display: block;
+        width: 100%;
+        font-size: 24px;
+        font-size: 2.4rem;
+        line-height: 35px;
+        line-height: 3.5rem;
+        position: relative;
+        padding-bottom: 5px;
+
+        &:before {
+          content: '';
+          width: 35px;
+          height: 2px;
+          background-color: $blue;
+          position: absolute;
+          bottom: 0;
+        }
+      }
+      ul {
+        margin: 0 0 25px;
+
+        li {
+          list-style: none;
+          margin: 0;
+
+          a {
+            color: $gray;
+            display: block;
+            width: 100%;
+            padding: 5px 0;
+
+            &:before {
+              @extend .material-icon;
+              content: '\E315';
+              font-size: 14px;
+              position: relative;
+              bottom: -2px;
+            }
+          }
+        }
+      }
+    }
+    .blog-sidelinks {
+      padding: 20px;
+    }
+  }
+
+  .contact-sidebar {
+    @include breakpoint('desktop') {
+      margin-bottom: 100px;
+    }
+    iframe {
+      width: 100% !important;
+      height: 250px;
+      display: none;
+
+      @include breakpoint('desktop') {
+        display: block;
+      }
+    }
+    h2 {
+      color: $blue;
+      font-size: 21px;
+      font-size: 2.1rem;
+      line-height: 58px;
+      line-height: 5.9rem;
+      border-bottom: 1px solid rgba($gray, 0.2);
+    }
+    p {
+      font-weight: 300;
+
+      strong {
+        font-weight: 400;
+        color: $jet;
+      }
+
+      a {
+        color: $gray;
       }
     }
   }
@@ -488,7 +764,7 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding: 50px 0 40px;
+    padding: 50px 0;
     background-color: rgba($gray, 0.3);
 
     &.no-bottom-padding {
@@ -498,9 +774,27 @@ header {
     @include breakpoint('mobile') {
       padding: 25px 0 20px;
     }
+
+    &.theme {
+      &-Light {
+        background-color: $jet;
+        h1,h2,h3,h4,p,li {
+          color: white;
+        }
+      }
+      &-Dark {
+        h1,h2,h3,h4,p,li {
+          color: $jet;
+        }
+      }
+    }
   }
 
   .tripple-blocks {
+    @include breakpoint('desktop') {
+      margin-bottom: 35px;
+    }
+
     .row {
       @extend .flex;
 
@@ -514,7 +808,7 @@ header {
       padding-bottom: 30px;
 
       @include breakpoint('desktop') {
-        padding: 30px 30px 0;
+        padding: 30px 30px 15px;
       }
     }
 
@@ -530,13 +824,26 @@ header {
       margin-bottom: 0px;
 
       @include breakpoint('desktop') {
-        margin-bottom: 3px;
+        margin-bottom: 2px;
       }
 
       .content {
         @include breakpoint('max') {
           padding: 20px 30px;
+
+          p, input {
+            text-align: center;
+          }
         }
+      }
+
+      .wpcf7-response-output {
+        position: absolute;
+        top: -35px;
+        width: 100%;
+        font-size: 12px;
+        font-size: 1.2rem;
+        margin-top: 0px;
       }
 
       h2 {
@@ -557,8 +864,18 @@ header {
           }
         }
       }
+      p {
+        margin: 30px 0;
+
+        span {
+          color: white;
+          font-size: 12px;
+          font-size: 1.2rem;
+        }
+      }
       form {
-        margin-top: 50px;
+        margin-top: 45px;
+        position: relative;
       }
       label {
         font-size: 16px;
@@ -572,6 +889,7 @@ header {
         color: white;
         font-size: 13px;
         font-size: 1.3rem;
+        margin-bottom: 0px;
 
         &:focus {
           box-shadow: 0 1px 0 0 darken($blue, 15%);
@@ -609,7 +927,7 @@ header {
     }
 
     .box {
-      padding: 40px 30px;
+      padding: 40px;
       background-color: $blue;
 
       .readmore {
@@ -696,14 +1014,15 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 301px * 0.5;
+    height: 301px * 0.7;
     
-    @include breakpoint('tablet') {
-      height: 301px * 0.7;
-    }
     @include breakpoint('desktop') {
       height: 301px;
     }
+  }
+
+  .view-article {
+    display: none;
   }
 
   h1 {
@@ -771,7 +1090,7 @@ header {
     height: inherit;
     box-shadow: none;
     margin-bottom: 0px;
-    padding: 15px 40px 15px 10px;
+    padding: 15px 40px 15px 15px;
     box-sizing: border-box;
     font-size: 13px;
     font-size: 1.3rem;
@@ -797,9 +1116,17 @@ header {
   padding: 50px 0 35px;
   color: white;
 
+  @include breakpoint('mobile') {
+    text-align: center;
+  }
+
   .footer-logo {
     display: block;
     margin-bottom: 25px;
+
+    @include breakpoint('mobile') {
+      display: inline-block;
+    }
   }
 
   p, li {
@@ -833,7 +1160,7 @@ header {
     margin-bottom: 15px;
   }
 
-  .socials {
+  .social-links {
     margin-top: 25px;
 
     li {
@@ -890,5 +1217,12 @@ header {
     font-size: 1.2rem;
     line-height: 19px;
     line-height: 1.9rem;
+  }
+}
+
+footer {
+  .newsletter.top-level {
+    margin-bottom: 0px;
+    margin-top: 50px;
   }
 }

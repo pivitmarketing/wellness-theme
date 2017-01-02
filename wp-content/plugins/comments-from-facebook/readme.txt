@@ -3,7 +3,7 @@ Contributors: wpdevart
 Tags: facebook comments, facebook comment, facebook comment notification, facebook comments import, facebook comment system, comments, comment, wordpress comment, wordpress comments, Facebook, facebook badge, facebook connect, facebook group, facebook integration, Facebook like widget, facebook meta, facebook meta tag, Facebook Open Graph, Facebook Page, facebook platform, facebook plugin, post to facebook, Facebook feed, Facebook Stream, social, responsive comments, social comments, comments plugin, facebook comment plugin, yahoo           
 Requires at least: 2.9
 Tested up to: 4.7.0
-Stable tag: 1.5.7
+Stable tag: 1.5.8
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -100,11 +100,11 @@ Yes dear user, find this option below posts/pages content(admin panel).
 
 You need to select the .zip file only, there is no need to extract the zip file, just upload it
 
-= I purchased the pro version, but didn't download the pro file =
+= I purchased the pro version, but didn't download the Facebook Comments pro file =
 
 Contact us at support@wpdevart.com and send us purchase details and we will send you the pro version.
 
-= Do I need to pay yearly or monthly for pro version =
+= Do I need to pay yearly or monthly for Facebook Comments pro version =
 
 No dear users, you need to pay only onece for our pro version.
 
@@ -354,6 +354,10 @@ Dear users, we also recommend you to take a look for this useful plugins - [Word
 = 1.5.6 ==
 
 *  Changed default values.
+
+= 1.5.7 ==
+
+*  Edited comments in code.
 
 ==Facebook comments WordPress step by step guide==
 

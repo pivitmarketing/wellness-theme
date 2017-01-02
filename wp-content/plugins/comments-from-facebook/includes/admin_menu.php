@@ -174,18 +174,18 @@ Also, here is another tutorial(from other source) of creating App Id, you can ch
                                             
                                             <p><strong>Here are explanation of Facebook comments shortcode attributes.</strong></p>
                                             
-                                            <p><strong>curent_url</strong> - Type the page URL from where you need to show Facebook comments </p>
-                                            <p><strong>title_text</strong> - Type here Facebook comments box title</p>
-                                            <p><strong>colorscheme</strong> <span class="pro_feature"> (pro)</span> - Select Facebook comments box color scheme.Can be "light" or "dark".</p>
-                                            <p><strong>order_type</strong> - Select Facebook comments box order type.The order to use when displaying comments. Can be "social", "reverse_time", or "time". </p>
-                                            <p><strong>title_text_color</strong> - Select Facebook comments box title text color</p>
-                                            <p><strong>title_text_font_size</strong> - Type Facebook comments box title font-size(px)</p>
-                                            <p><strong>title_text_font_famely</strong> - Select Facebook comments box title font family</p>
-                                            <p><strong>title_text_position</strong> - Select Facebook comments box title position</p>
-                                            <p><strong>width</strong> - Type here the Facebook comments box width(px)</p>
-                                            <p><strong>count_of_comments</strong> - Type here the number of Facebook comments you need to display</p>
-                                            <p><strong>bg_color</strong> <span class="pro_feature"> (pro)</span> - Select Facebook comments background color</p>
-                                            <p><strong>animation_effect</strong> <span class="pro_feature"> (pro)</span> - Select the animation effect for Facebook comments box</p>
+                                            <p><strong>Curent_url</strong> - Type the page URL from where you need to show Facebook comments </p>
+                                            <p><strong>Title_text</strong> - Type here Facebook comments box title</p>
+                                            <p><strong>Colorscheme</strong> <span class="pro_feature"> (pro)</span> - Select Facebook comments box color scheme.Can be "light" or "dark".</p>
+                                            <p><strong>Order_type</strong> - Select Facebook comments box order type.The order to use when displaying comments. Can be "social", "reverse_time", or "time". </p>
+                                            <p><strong>Title_text_color</strong> - Select Facebook comments box title text color</p>
+                                            <p><strong>Title_text_font_size</strong> - Type Facebook comments box title font-size(px)</p>
+                                            <p><strong>Title_text_font_famely</strong> - Select Facebook comments box title font family</p>
+                                            <p><strong>Title_text_position</strong> - Select Facebook comments box title position</p>
+                                            <p><strong>Width</strong> - Type here the Facebook comments box width(px)</p>
+                                            <p><strong>Count_of_comments</strong> - Type here the number of Facebook comments you need to display</p>
+                                            <p><strong>Bg_color</strong> <span class="pro_feature"> (pro)</span> - Select Facebook comments background color</p>
+                                            <p><strong>Animation_effect</strong> <span class="pro_feature"> (pro)</span> - Select the animation effect for Facebook comments box</p>
 
                                         </div>
                                     </td>

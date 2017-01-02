@@ -51,21 +51,29 @@
   <!-- Desktop header / navigation -->
 
   <?php 
-    $height = (get_field('splash_content')) ? 'active-content' : 'hide-on-med-and-down';
-    if (get_field('background_image')): 
+    $pageId = (!is_home()) ? $post->ID : get_queried_object()->ID;
+    $height = (get_field('splash_content')) ? 'active-content' : '';
+    if (get_field('background_image', $pageId)): 
   ?>
-    <div class="desktop-header <?php echo $height; ?>" style="background-image: url('<?php echo get_field('background_image'); ?>');">
+    <div class="desktop-header <?php echo $height; ?>" style="background-image: url('<?php echo get_field('background_image', $pageId); ?>');">
   <?php else: ?>
     <div class="desktop-header <?php echo $height; ?>">
   <?php endif; ?>
 
-    <div class="container main-nav hide-on-med-and-down">
-      <div class="row">
+    <div class="container main-nav">
+      <div class="row hide-on-med-and-down">
         <div class="col s4"><a href="<?php echo site_url(); ?>"><img src="<?php the_field('site_header_logo', 'options'); ?>"></a></div>
         <div class="col s8">
           <?php wp_nav_menu('Menu=Main Nav'); ?>
         </div>
       </div>
+
+      <?php if (!is_front_page()): $extraMargin = (get_field('background_image', $pageId)) ? 'more-margin' : ''; ?>
+        <h1 class="subpage-title <?php echo $extraMargin; ?>">
+          <?php if (!is_home()): the_title(); else: single_post_title(); endif; ?>
+        </h1>
+      <?php endif; ?>
+
     </div>
 
     <?php if (get_field('splash_content')): ?>

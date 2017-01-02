@@ -27,7 +27,7 @@ class wpdevart_comment_install_database{
 				"wpdevart_comment_title_text_position"				=> 'left',
 				"wpdevart_comments_box_show_in"						=>  '{"home":true,"post":true,"page":true}',	
 				"wpdevart_comments_box_width"						=>  '100%',
-				"wpdevart_comments_box_count_of_comments"			=>  '7',	
+				"wpdevart_comments_box_count_of_comments"			=>  '10',	
 				"wpdevart_comments_box_locale"						=>  'en_US',		
 			)			
 		);

@@ -237,13 +237,13 @@ function html5wp_pagination()
 // Custom Excerpts
 function html5wp_index($length) // Create 20 Word Callback for Index page Excerpts, call using html5wp_excerpt('html5wp_index');
 {
-    return 20;
+    return 80;
 }
 
 // Create 40 Word Callback for Custom Post Excerpts, call using html5wp_excerpt('html5wp_custom_post');
 function html5wp_custom_post($length)
 {
-    return 40;
+    return 160;
 }
 
 // Create the Custom Excerpts callback
@@ -450,6 +450,31 @@ function blockelements($atts, $content = null) {
 }
 add_shortcode('blockelements', 'blockelements');
 
+function social_icons($atts, $content = null) {
+  $facebook  = get_field('facebook_url', 'options');
+  $twitter   = get_field('twitter_url', 'options');
+  $linkedin  = get_field('linkedin_url', 'options');
+  $instagram = get_field('instagram_url', 'options');
+
+  $socials = array(
+    'facebook',
+    'twitter',
+    'linkedin',
+    'instagram'
+  );
+
+  $html = '<ul class="social-links">';
+    foreach ($socials as $social):
+      if (get_field($social.'_url', 'options')):
+        $html .= '<li><a href="'.get_field($social.'_url', 'options').'"><img src="'.get_template_directory_uri().'/img/icon-'.$social.'.png" /></a></li>';
+      endif;
+    endforeach;
+  $html .= '</ul>';
+
+  return $html;
+}
+add_shortcode('social_icons', 'social_icons');
+
 function top_info($atts, $content = null) {
   $phone_number  = get_field('global_phone_number', 'options');
   $email_address = get_field('global_email_address', 'options');
@@ -469,13 +494,7 @@ function top_info($atts, $content = null) {
 
     if ($facebook || $twitter || $linkedin || $instagram):
       $html .= '<li>';
-        $html .= '<ul class="social-links">';
-          foreach ($socials as $social) {
-            if (get_field($social.'_url', 'options')):
-              $html .= '<li><a href="'.get_field($social.'_url', 'options').'"><img src="'.get_template_directory_uri().'/img/icon-'.$social.'.png" /></a></li>';
-            endif;
-          }
-        $html .= '</ul>';
+        $html .= do_shortcode('[social_icons]');
       $html .= '</li>';
     endif;
 
@@ -491,3 +510,148 @@ function top_info($atts, $content = null) {
 return $html;
 }
 add_shortcode('top_info', 'top_info');
+
+function extra_cta_blocks($atts, $content = null) {
+  if (have_rows('extra_cta_blocks')):
+    $total_block_count = count(get_field('extra_cta_blocks'));
+    $lg = 12 / $total_block_count;
+    $html = '<div class="tripple-blocks">';
+      $html .= '<div class="row">';
+        while (have_rows('extra_cta_blocks')): the_row(); 
+          $extraClass = (get_sub_field('form_block') == 'yes') ? 'form' : '';
+          $h2 = (get_sub_field('form_block') == 'yes') ? '<h2 class="text-center">Contact Us Today</h2>': '';
+          $html .= '<div class="col s12 l'.$lg.' '.$extraClass.' nopadding nomargin">';
+            $html .= '<div class="content">';
+              $html .= $h2;
+              $html .= get_sub_field('content');
+            $html .= '</div>';
+            if (get_sub_field('form_block') !== 'yes' && get_sub_field('background_image')):
+              $html .= '<img src="'.get_sub_field('background_image').'" class="box-bg hide-on-med-and-down" />';
+            endif;
+          $html .= '</div>';
+        endwhile;
+      $html .= '</div>';
+    $html .= '</div>';
+  endif;
+return $html;
+}
+add_shortcode('extra_cta_blocks', 'extra_cta_blocks');
+
+function bottom_block_elements($atts, $content = null) {
+  if (have_rows('bottom_content_block')):
+    $total_block_count = count(get_field('bottom_content_block'));
+    $lg_count = 12 / $total_block_count;
+    $lg = $lg_count;
+    $md;
+    switch($lg) {
+      case 12: $md = 12; break;
+      case 6:  $md = 6;  break;
+      case 4:  $md = 4;  break;
+      case 3:  $md = 6;  break;
+      default: 6;
+    }
+    $bg_image = (get_field('bottom_cta_background_image')) ? 'background-image:url('.get_field('bottom_cta_background_image').');' : '';
+    $theme = get_field('bottom_theme_type');
+    $html = '<div class="full-bg no-bottom-padding theme-'.$theme.'" style="'.$bg_image.'">';
+    $html .= '<div class="container">';
+    $html .= '<div class="row nomargin">';
+    if (get_field('content_above_blocks')):
+      $html .= '<div class="col s12">';
+        $html .= get_field('content_above_blocks');
+      $html .= '</div>';
+    endif;
+    $html .= '<div class="cta-blocks col s12">';
+    $count = 1;
+    while (have_rows('bottom_content_block')) : the_row();
+      if ($count <= 4):
+        $html .= '<div class="box col s12 l'.$md.'">';
+          $html .= get_sub_field('text');
+
+          if (get_sub_field('link_to_page')):
+            $html .= '<p><a href="'.get_sub_field('link_to_page').'" class="button-white readmore">Read More</a></p>';
+          endif;
+        $html .= '</div>';
+        $count++;
+      endif;
+    endwhile; 
+      $html .= '</div>';
+      $html .= '</div>';
+      $html .= '</div>';
+      $html .= '</div>';
+    endif;
+
+  return $html;
+}
+add_shortcode('bottom_block_elements', 'bottom_block_elements');
+
+function site_info($atts, $content = null) {
+  $atts = shortcode_atts(
+  array(
+    'name' => 'foo',
+    'label' => 'bar'
+  ), $atts);
+
+  $content = get_field($atts['name'], 'options');
+
+  switch($atts['label']):
+    case 'Address':
+      $newText = strip_tags($content);
+      $text = '<a href="http://google.com/maps/place/'.urlencode($newText).'" target="_blank">'.$content.'</a>';
+      //$text = '<a href="'.urlencode($content).'>'.$content.'</a>';
+    break;
+    case 'Phone':
+      $text = '<a href="tel:+1'.preg_replace("/[^0-9+x]/", "", $content).'">'.$content.'</a>';
+    break;
+    case 'Email':
+      $text = '<a href="mailto:'.$content.'">'.$content.'</a>';
+    break;
+  endswitch;
+
+  $html = urlencode(get_field($atts['name']));
+
+  if (get_field($atts['name'], 'options')):
+    $html = '<p><strong>'.$atts['label'].'</strong><br />'.$text.'</p>';
+  endif;
+
+return $html;
+}
+add_shortcode('site_info', 'site_info');
+
+function latest_blog_posts($atts, $content = null) {
+  $args = array(
+    'post_type' => 'post',
+    'post_status' => 'publish',
+    'posts_per_page' => 3
+  );
+
+  $loop = new WP_Query($args);
+
+  if ($loop->have_posts()):
+
+    $html .= '<div class="row blog-posts">';
+  
+    while ($loop->have_posts()) : $loop->the_post();
+
+      $html .= '<div class="col s12 l4">';
+        $html .= '<div class="card">';
+          $html .= '<a href="'.get_permalink().'">';
+          $html .= '<div class="card-image" style="background-image: url('.get_field('background_image').');"></div>';
+          $html .= '</a>';
+          $html .= '<div class="card-content">';
+            $html .= '<span class="date">'.get_the_time('F j, Y').'</span>';
+            $html .= '<h2>'.get_the_title().'</h2>';
+            $html .= '<p>'.substr(get_the_excerpt(), 0, 167).'</p>';
+            $html .= '<p><a href="'.get_permalink().'" class="more">read more</a></p>';
+          $html .= '</div>';
+        $html .= '</div>';
+      $html .= '</div>';
+
+    endwhile;
+
+    $html .= '</div>';
+
+  endif;
+
+return $html;
+}
+add_shortcode('latest_blog_posts', 'latest_blog_posts');

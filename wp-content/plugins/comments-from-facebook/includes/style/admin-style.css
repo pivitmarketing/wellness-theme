@@ -213,6 +213,7 @@ button{
 .save_button_span{
 	 float:left;
 }
+/*Facebook Comments success save style*/
  .sucsses_save{
 	position: relative;
 	display:none;
@@ -223,6 +224,7 @@ button{
 	background-image: url(../../images/success.png);
 	background-size:100% 100%;
 }
+/*Facebook Comments failure save style*/
 .error_in_saving{
 	position: relative;
 	display:none;
