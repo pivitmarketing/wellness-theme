@@ -3,11 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2017 at 11:18 PM
+-- Generation Time: Jan 13, 2017 at 06:45 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -28,7 +27,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `mt_cf7dbplugin_st` (
   `submit_time` decimal(16,4) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `mt_cf7dbplugin_st`
@@ -49,12 +48,12 @@ INSERT INTO `mt_cf7dbplugin_st` (`submit_time`) VALUES
 
 CREATE TABLE `mt_cf7dbplugin_submits` (
   `submit_time` decimal(16,4) NOT NULL,
-  `form_name` varchar(127) CHARACTER SET utf8 DEFAULT NULL,
-  `field_name` varchar(127) CHARACTER SET utf8 DEFAULT NULL,
-  `field_value` longtext CHARACTER SET utf8,
+  `form_name` varchar(127) DEFAULT NULL,
+  `field_name` varchar(127) DEFAULT NULL,
+  `field_value` longtext,
   `field_order` int(11) DEFAULT NULL,
   `file` longblob
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `mt_cf7dbplugin_submits`
@@ -89,9 +88,9 @@ INSERT INTO `mt_cf7dbplugin_submits` (`submit_time`, `form_name`, `field_name`, 
 CREATE TABLE `mt_commentmeta` (
   `meta_id` bigint(20) UNSIGNED NOT NULL,
   `comment_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext
+) ;
 
 -- --------------------------------------------------------
 
@@ -102,20 +101,20 @@ CREATE TABLE `mt_commentmeta` (
 CREATE TABLE `mt_comments` (
   `comment_ID` bigint(20) UNSIGNED NOT NULL,
   `comment_post_ID` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `comment_author` tinytext COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `comment_author_email` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `comment_author_url` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `comment_author_IP` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_author` tinytext NOT NULL,
+  `comment_author_email` varchar(100) NOT NULL DEFAULT '',
+  `comment_author_url` varchar(200) NOT NULL DEFAULT '',
+  `comment_author_IP` varchar(100) NOT NULL DEFAULT '',
   `comment_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `comment_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `comment_content` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `comment_content` text NOT NULL,
   `comment_karma` int(11) NOT NULL DEFAULT '0',
-  `comment_approved` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '1',
-  `comment_agent` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `comment_type` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_approved` varchar(20) NOT NULL DEFAULT '1',
+  `comment_agent` varchar(255) NOT NULL DEFAULT '',
+  `comment_type` varchar(20) NOT NULL DEFAULT '',
   `comment_parent` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ;
 
 --
 -- Dumping data for table `mt_comments`
@@ -132,19 +131,19 @@ INSERT INTO `mt_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `c
 
 CREATE TABLE `mt_links` (
   `link_id` bigint(20) UNSIGNED NOT NULL,
-  `link_url` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_name` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_image` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_target` varchar(25) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_description` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_visible` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'Y',
+  `link_url` varchar(255) NOT NULL DEFAULT '',
+  `link_name` varchar(255) NOT NULL DEFAULT '',
+  `link_image` varchar(255) NOT NULL DEFAULT '',
+  `link_target` varchar(25) NOT NULL DEFAULT '',
+  `link_description` varchar(255) NOT NULL DEFAULT '',
+  `link_visible` varchar(20) NOT NULL DEFAULT 'Y',
   `link_owner` bigint(20) UNSIGNED NOT NULL DEFAULT '1',
   `link_rating` int(11) NOT NULL DEFAULT '0',
   `link_updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `link_rel` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_notes` mediumtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `link_rss` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT ''
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `link_rel` varchar(255) NOT NULL DEFAULT '',
+  `link_notes` mediumtext NOT NULL,
+  `link_rss` varchar(255) NOT NULL DEFAULT ''
+) ;
 
 -- --------------------------------------------------------
 
@@ -154,10 +153,10 @@ CREATE TABLE `mt_links` (
 
 CREATE TABLE `mt_options` (
   `option_id` bigint(20) UNSIGNED NOT NULL,
-  `option_name` varchar(191) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `option_value` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `autoload` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'yes'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `option_name` varchar(191) NOT NULL DEFAULT '',
+  `option_value` longtext NOT NULL,
+  `autoload` varchar(20) NOT NULL DEFAULT 'yes'
+) ;
 
 --
 -- Dumping data for table `mt_options`
@@ -404,9 +403,9 @@ INSERT INTO `mt_options` (`option_id`, `option_name`, `option_value`, `autoload`
 CREATE TABLE `mt_postmeta` (
   `meta_id` bigint(20) UNSIGNED NOT NULL,
   `post_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext
+) ;
 
 --
 -- Dumping data for table `mt_postmeta`
@@ -1666,26 +1665,26 @@ CREATE TABLE `mt_posts` (
   `post_author` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `post_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `post_content` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `post_title` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `post_excerpt` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `post_status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'publish',
-  `comment_status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'open',
-  `ping_status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'open',
-  `post_password` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `post_name` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `to_ping` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `pinged` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `post_content` longtext NOT NULL,
+  `post_title` text NOT NULL,
+  `post_excerpt` text NOT NULL,
+  `post_status` varchar(20) NOT NULL DEFAULT 'publish',
+  `comment_status` varchar(20) NOT NULL DEFAULT 'open',
+  `ping_status` varchar(20) NOT NULL DEFAULT 'open',
+  `post_password` varchar(255) NOT NULL DEFAULT '',
+  `post_name` varchar(200) NOT NULL DEFAULT '',
+  `to_ping` text NOT NULL,
+  `pinged` text NOT NULL,
   `post_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `post_modified_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `post_content_filtered` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `post_content_filtered` longtext NOT NULL,
   `post_parent` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `guid` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `guid` varchar(255) NOT NULL DEFAULT '',
   `menu_order` int(11) NOT NULL DEFAULT '0',
-  `post_type` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'post',
-  `post_mime_type` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `post_type` varchar(20) NOT NULL DEFAULT 'post',
+  `post_mime_type` varchar(100) NOT NULL DEFAULT '',
   `comment_count` bigint(20) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ;
 
 --
 -- Dumping data for table `mt_posts`
@@ -1796,9 +1795,9 @@ INSERT INTO `mt_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 CREATE TABLE `mt_termmeta` (
   `meta_id` bigint(20) UNSIGNED NOT NULL,
   `term_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext
+) ;
 
 -- --------------------------------------------------------
 
@@ -1808,10 +1807,10 @@ CREATE TABLE `mt_termmeta` (
 
 CREATE TABLE `mt_terms` (
   `term_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `slug` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `name` varchar(200) NOT NULL DEFAULT '',
+  `slug` varchar(200) NOT NULL DEFAULT '',
   `term_group` bigint(10) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ;
 
 --
 -- Dumping data for table `mt_terms`
@@ -1835,7 +1834,7 @@ CREATE TABLE `mt_term_relationships` (
   `object_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `term_order` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ;
 
 --
 -- Dumping data for table `mt_term_relationships`
@@ -1864,11 +1863,11 @@ INSERT INTO `mt_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 CREATE TABLE `mt_term_taxonomy` (
   `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL,
   `term_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `taxonomy` varchar(32) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `description` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `taxonomy` varchar(32) NOT NULL DEFAULT '',
+  `description` longtext NOT NULL,
   `parent` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `count` bigint(20) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ;
 
 --
 -- Dumping data for table `mt_term_taxonomy`
@@ -1891,9 +1890,9 @@ INSERT INTO `mt_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 CREATE TABLE `mt_usermeta` (
   `umeta_id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext
+) ;
 
 --
 -- Dumping data for table `mt_usermeta`
@@ -1942,16 +1941,16 @@ INSERT INTO `mt_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 
 CREATE TABLE `mt_users` (
   `ID` bigint(20) UNSIGNED NOT NULL,
-  `user_login` varchar(60) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `user_pass` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `user_nicename` varchar(50) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `user_email` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `user_url` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `user_login` varchar(60) NOT NULL DEFAULT '',
+  `user_pass` varchar(255) NOT NULL DEFAULT '',
+  `user_nicename` varchar(50) NOT NULL DEFAULT '',
+  `user_email` varchar(100) NOT NULL DEFAULT '',
+  `user_url` varchar(100) NOT NULL DEFAULT '',
   `user_registered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `user_activation_key` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `user_activation_key` varchar(255) NOT NULL DEFAULT '',
   `user_status` int(11) NOT NULL DEFAULT '0',
-  `display_name` varchar(250) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT ''
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `display_name` varchar(250) NOT NULL DEFAULT ''
+) ;
 
 --
 -- Dumping data for table `mt_users`
@@ -2090,7 +2089,7 @@ ALTER TABLE `mt_commentmeta`
 -- AUTO_INCREMENT for table `mt_comments`
 --
 ALTER TABLE `mt_comments`
-  MODIFY `comment_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `comment_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `mt_links`
 --
@@ -2100,17 +2099,17 @@ ALTER TABLE `mt_links`
 -- AUTO_INCREMENT for table `mt_options`
 --
 ALTER TABLE `mt_options`
-  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=409;
+  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `mt_postmeta`
 --
 ALTER TABLE `mt_postmeta`
-  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1361;
+  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `mt_posts`
 --
 ALTER TABLE `mt_posts`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `mt_termmeta`
 --
@@ -2120,22 +2119,22 @@ ALTER TABLE `mt_termmeta`
 -- AUTO_INCREMENT for table `mt_terms`
 --
 ALTER TABLE `mt_terms`
-  MODIFY `term_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `term_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `mt_term_taxonomy`
 --
 ALTER TABLE `mt_term_taxonomy`
-  MODIFY `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `mt_usermeta`
 --
 ALTER TABLE `mt_usermeta`
-  MODIFY `umeta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `umeta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `mt_users`
 --
 ALTER TABLE `mt_users`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
